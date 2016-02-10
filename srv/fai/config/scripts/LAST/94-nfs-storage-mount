@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# storage zpool mount
+case $HOSTNAME in
+	humpty|dumpty|node*)
+	echo "10.0.0.10:/home     /home   nfs     defaults        0       0" >> /target/etc/fstab;;
+esac
