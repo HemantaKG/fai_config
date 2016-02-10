@@ -1,0 +1,2 @@
+# add NIS server's hostname
+domain <<domain name>> server <<nis server name>>
