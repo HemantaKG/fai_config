@@ -1,0 +1,13 @@
+PACKAGES aptitude
+#for system time setting
+htop
+sudo
+ntp
+
+#other python pack
+python-numpy
+python-healpy
+python-scipy
+python-hashmap
+python-matplotlib
+pyhton-corner
