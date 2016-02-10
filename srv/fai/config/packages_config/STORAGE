@@ -1,0 +1,5 @@
+PACKAGES install
+#zfs packages
+lsb-release
+zfsonlinux_6_all.deb
+install debian-zfs
