@@ -1,0 +1,10 @@
+#! /bin/bash
+#GANGLIA NODE CONFIG
+case $HOSTNAME in
+	crm|node*)
+		cp -aurf /var/lib/fai/config/files/etc/ganglia/gmond.conf.node /target/etc/ganglia/gmond.conf;;
+	humpty|dumpty)
+		cp -aurf /var/lib/fai/config/files/apache2/site-enabled/ganglia.conf.master /target/etc/apache2/sites-enabled/ganglia.conf
+		cp -aurf /var/lib/fai/config/files/etc/ganglia/gmond.conf.master /target/etc/ganglia/gmond.conf
+		cp -aurf /var/lib/fai/config/files/etc/ganglia/gmetad.conf.master /target/etc/ganglia/gmetad.conf;;
+esac
