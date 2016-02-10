@@ -1,0 +1,8 @@
+PACKAGES install
+lsb-release
+ldg-client
+globus-proxy-utils
+ldg-server
+lscsoft-lalsuite-dev
+lscsoft-external
+lscsoft-all
