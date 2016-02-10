@@ -1,0 +1,52 @@
+# HTCondor configuration file
+#
+# Configuration placed into this file extends/overwrites the settings in the
+# main HTCondor configuration at /etc/condor/condor_config.
+# It may be advantagous to leave the main configuration file pristine and put
+# local configuration here to ease configuration updates during upgrades of the
+# HTCondor Debian package. Alternatively, it is also possible to place additional
+# configuration files into /etc/condor/config.d that will take precedence over
+# both the main configuration file and this local configuration. Note that
+# DebConf-generated configuration will overwrite settings in this file.
+
+DAEMON_LIST = COLLECTOR, MASTER, NEGOTIATOR
+ALLOW_CONFIG = root@crm.alice.icts.res.in
+ALLOW_WRITE = *
+##################################################################################
+############################# SECURITY CONFIG ####################################
+##################################################################################
+SEC_PASSWORD_FILE = /etc/condor/secret/pool_password
+
+SEC_DAEMON_AUTHENTICATION = REQUIRED
+SEC_DAEMON_INTEGRITY = REQUIRED
+SEC_DAEMON_AUTHENTICATION_METHODS = PASSWORD
+ALLOW_DAEMON = condor_pool@*
+
+SEC_NEGOTIATOR_AUTHENTICATION = REQUIRED
+SEC_NEGOTIATOR_INTEGRITY = REQUIRED
+SEC_NEGOTIATOR_AUTHENTICATION_METHODS = PASSWORD
+SEC_CLIENT_AUTHENTICATION_METHODS = FS, PASSWORD, KERBEROS, GSI
+ALLOW_NEGOTIATOR = condor_pool@*
+
+SEC_ADVERTISE_STARTD_AUTHENTICATION = REQUIRED
+SEC_ADVERTISE_STARTD_INTEGRITY = REQUIRED
+SEC_ADVERTISE_STARTD_AUTHENTICATION_METHODS = PASSWORD
+SEC_CLIENT_AUTHENTICATION_METHODS = FS, PASSWORD, KERBEROS, GSI
+ALLOW_ADVERTISE_STARTD = condor_pool@*
+SEC_ADVERTISE_MASTER_AUTHENTICATION = REQUIRED
+SEC_ADVERTISE_MASTER_INTEGRITY = REQUIRED
+SEC_ADVERTISE_MASTER_AUTHENTICATION_METHODS = PASSWORD
+SEC_CLIENT_AUTHENTICATION_METHODS = FS, PASSWORD, KERBEROS, GSI
+ALLOW_ADVERTISE_MASTER = condor_pool@*
+
+SEC_ADVERTISE_SCHEDD_AUTHENTICATION = REQUIRED
+SEC_ADVERTISE_SCHEDD_INTEGRITY = REQUIRED
+SEC_ADVERTISE_SCHEDD_AUTHENTICATION_METHODS = PASSWORD
+SEC_CLIENT_AUTHENTICATION_METHODS = FS, PASSWORD, KERBEROS, GSI
+ALLOW_ADVERTISE_SCHEDD = condor_pool@*
+
+SEC_ADMINISTRATOR_AUTHENTICATION = REQUIRED
+SEC_ADMINISTRATOR_INTEGRITY = REQUIRED
+SEC_ADMINISTRATOR_AUTHENTICATION_METHODS = PASSWORD, FS, KERBEROS, GSI
+ALLOW_ADMINISTRATOR = condor_pool@dumpty.alice.icts.res.in,condor_pool@humpty.alice.icts.res.in/$(IP_ADDRESS),condor_pool@crm.icts.res.in/$(IP_ADDRESS)
+
