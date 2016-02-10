@@ -1,0 +1,2 @@
+# nano /etc/ganglia/gmetad.conf
+data_source "alice cluster" 50 <<master IP>>
