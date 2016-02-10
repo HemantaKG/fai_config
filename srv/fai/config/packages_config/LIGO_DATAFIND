@@ -1,0 +1,8 @@
+PACKAGES aptitude
+apache2
+mod_wsgi
+mod_ssl
+python-configobj
+python-glue
+python-resolver
+python-selector
