@@ -1,0 +1,17 @@
+#!/bin/bash
+#Condor configuration
+
+mkdir /target/etc/condor/secret
+cp -aurf /var/lib/fai/config/files/etc/condor/secret/pool_password /target/etc/condor/secret/
+chmod 600 /target/etc/condor/secret/pool_password
+
+case $HOSTNAME in
+	master*|humpty|dumpty|alice)
+	CONFIG_FILE=condor_config_submit.local;;
+	node*)
+	CONFIG_FILE=condor_config_node.local;;
+	crm*)
+	CONFIG_FILE=condor_config_manager.local;;
+esac
+cp -aurf /var/lib/fai/config/files/etc/condor/$CONFIG_FILE /target/etc/condor/config.d/condor_config.local
+
