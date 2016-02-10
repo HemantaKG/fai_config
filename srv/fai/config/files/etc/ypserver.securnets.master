@@ -1,0 +1,5 @@
+nano /etc/ypserv.securenets
+# This line gives access to everybody. PLEASE ADJUST!
+#0.0.0.0        0.0.0.0
+# IP addresss allow access
+255.255.255.0   <<ur network ip>>
