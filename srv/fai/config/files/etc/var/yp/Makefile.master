@@ -1,0 +1,2 @@
+#add following line at end
+all:    passwd shadow group hosts rpc services netid protocols
