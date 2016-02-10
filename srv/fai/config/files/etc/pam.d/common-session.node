@@ -1,0 +1,2 @@
+# add at the last: create home directory automatically at the first login
+session optional        pam_mkhomedir.so skel=/etc/skel umask=077
