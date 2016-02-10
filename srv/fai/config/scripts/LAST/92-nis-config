@@ -1,0 +1,12 @@
+#! /bin/bash
+case $HOSTNAME in
+        node*)
+                cp -aurf /var/lib/fai/config/files/etc/yp.conf.node /target/etc/yp.conf
+		cp -aurf /var/lib/fai/config/files/etc/nsswitch.conf.node /target/etc/nsswitch.conf
+		cp -aurf /var/lib/fai/config/files/etc/pam.d/common-session.node /target/etc/pam.d/common-session;;
+
+        humpty|dumpty)
+                cp -aurf /var/lib/fai/config/files/etc/default/nis.master /target/etc/default/nis
+                cp -aurf /var/lib/fai/config/files/etc/ypserv.securenets.master /target/etc/ypserv.securenets
+                cp -aurf /var/lib/fai/config/files/var/yp/Makefile.master /target/var/yp/Makefile;;
+esac
