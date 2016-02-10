@@ -1,0 +1,2 @@
+#!/bin/bash
+cat /var/lib/fai/config/files/root/.ssh/authorized_keys/DEBIAN | cat >> /target/root/.ssh/authorized_keys
