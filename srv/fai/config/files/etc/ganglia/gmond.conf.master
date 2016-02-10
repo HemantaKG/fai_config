@@ -1,0 +1,25 @@
+#EDIT AS BELLOW...
+
+# nano /etc/ganglia/gmond.conf
+cluster {
+  name = "<<any name>>"  ## Name assigned to the client groups
+  owner = "unspecified"
+  latlong = "unspecified"
+  url = "unspecified"
+}
+[...]
+udp_send_channel   {
+  #mcast_join = 239.2.11.71 ## Comment
+  host = <<MASTER IP>>  ## Master node IP address
+  port = 8649
+  ttl = 1
+}
+[...]
+udp_recv_channel {
+  port = 8649
+}
+/* You can specify as many tcp_accept_channels as you like to share
+   an xml description of the state of the cluster */
+tcp_accept_channel {
+  port = 8649
+}
