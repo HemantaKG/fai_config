@@ -1,0 +1,4 @@
+PACKAGES install
+ganglia-monitor
+rrdtool gmetad
+ganglia-webfrontend
