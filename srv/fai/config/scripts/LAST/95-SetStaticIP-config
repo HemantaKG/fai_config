@@ -1,0 +1,16 @@
+###file location /etc/network/interfaces in case of debian###
+
+####Sample for setting up static ip configuration####
+#auto eth0
+#iface eth0 inet static
+#address <<public or local static ip>>
+#netmask <<netmask>>
+#gateway <<gateway ip>>
+#dns-nameservers 8.8.8.8 4.2.2.2
+
+
+###Sample for setting up dhcp ip###
+#auto eth0
+#iface eth0 inet dhcp
+
+
