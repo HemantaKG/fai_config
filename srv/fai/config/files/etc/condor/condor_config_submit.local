@@ -1,0 +1,30 @@
+# HTCondor configuration file
+#
+# Configuration placed into this file extends/overwrites the settings in the
+# main HTCondor configuration at /etc/condor/condor_config.
+# It may be advantagous to leave the main configuration file pristine and put
+# local configuration here to ease configuration updates during upgrades of the
+# HTCondor Debian package. Alternatively, it is also possible to place additional
+# configuration files into /etc/condor/config.d that will take precedence over
+# both the main configuration file and this local configuration. Note that
+# DebConf-generated configuration will overwrite settings in this file.
+
+CENTRAL_MANAGER1 = crm.alice.icts.res.in
+CONDOR_HOST = $(CENTRAL_MANAGER1)
+DAEMON_LIST = MASTER, SCHEDD
+ALLOW_CONFIG = root@mydomain/$(IP_ADDRESS)
+ALLOW_WRITE = *
+
+SEC_PASSWORD_FILE = /etc/condor/secret/pool_password
+
+SEC_DAEMON_AUTHENTICATION = REQUIRED
+SEC_DAEMON_INTEGRITY = REQUIRED
+SEC_DAEMON_AUTHENTICATION_METHODS = FS, PASSWORD, KERBEROS, GSI
+ALLOW_DAEMON = condor_pool@*
+
+SEC_NEGOTIATOR_AUTHENTICATION = REQUIRED
+SEC_NEGOTIATOR_INTEGRITY = REQUIRED
+SEC_NEGOTIATOR_AUTHENTICATION_METHODS = PASSWORD
+ALLOW_NEGOTIATOR = condor_pool@*
+
+SEC_CLIENT_AUTHENTICATION_METHODS = FS, PASSWORD, KERBEROS, GSI
